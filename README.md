@@ -27,9 +27,16 @@ Reset | Calling `reset` returns an empty cache | PASSED
 
 [Project repo](https://gitlab.com/InternetUnexplorer/CSCI_389_HW2)
 
+No compilation errors.
+
 Test name | Status
 --- | ---
-
+Set/Get | PASSED
+Set/Get | PASSED
+Set/Get | PASSED
+Set/Get | PASSED
+Space used | **FAILED**
+Reset | PASSED
 
 ### Jonah/Elijah
 
