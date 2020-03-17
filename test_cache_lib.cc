@@ -58,6 +58,7 @@ TEST_CASE ("Cache with nullptr Evictor", "[cache]") {
     REQUIRE(cache.get("k4", size) == NULL);
     REQUIRE(size == 0);
     REQUIRE(cache.space_used() == 7);
+    cache.reset();
   }
 
   SECTION( "should get a key that was inserted and modified" ) {
@@ -73,6 +74,7 @@ TEST_CASE ("Cache with nullptr Evictor", "[cache]") {
     REQUIRE(strcmp(cache.get("k3", size), val4) == 0);
     REQUIRE(size == strlen(val4)+1);
     REQUIRE(cache.space_used() == strlen(val4)+1);
+    cache.reset();
   }
 
   SECTION( "should not get a key that was inserted and deleted" ) {
@@ -86,6 +88,7 @@ TEST_CASE ("Cache with nullptr Evictor", "[cache]") {
     REQUIRE(cache.get("k1", size) == NULL);
     REQUIRE(size == 0);
     REQUIRE(cache.space_used() == 0);
+    cache.reset();
   }
 
   SECTION( "resetting should return empty cache" ) {
@@ -94,6 +97,7 @@ TEST_CASE ("Cache with nullptr Evictor", "[cache]") {
 
     cache.reset();
     REQUIRE(cache.space_used() == 0);
+    cache.reset();
   }
 }
 
@@ -113,6 +117,7 @@ TEST_CASE ("Cache with FIFO Evictor", "[evictor]") {
   SECTION( "should not get a key that wasn't inserted" ) {
     REQUIRE(cache.get("k1", size) == NULL);
     REQUIRE(size == 0);
+    cache.reset();
   }
 
   SECTION( "should get a key that was inserted" ) {
@@ -147,6 +152,7 @@ TEST_CASE ("Cache with FIFO Evictor", "[evictor]") {
 
     // total memory used is occupied by key 2->4
     REQUIRE(cache.space_used() == 8);
+    cache.reset();
   }
 
   SECTION( "should get a key that was inserted and modified" ) {
@@ -162,6 +168,7 @@ TEST_CASE ("Cache with FIFO Evictor", "[evictor]") {
     REQUIRE(strcmp(cache.get("k3", size), val4) == 0);
     REQUIRE(size == strlen(val4)+1);
     REQUIRE(cache.space_used() == strlen(val4)+1);
+    cache.reset();
   }
 
   SECTION( "should not get a key that was inserted and deleted" ) {
@@ -175,6 +182,7 @@ TEST_CASE ("Cache with FIFO Evictor", "[evictor]") {
     REQUIRE(cache.get("k1", size) == NULL);
     REQUIRE(size == 0);
     REQUIRE(cache.space_used() == 0);
+    cache.reset();
   }
 
   SECTION( "resetting should return empty cache" ) {
@@ -183,5 +191,6 @@ TEST_CASE ("Cache with FIFO Evictor", "[evictor]") {
 
     cache.reset();
     REQUIRE(cache.space_used() == 0);
+    cache.reset();
   }
 }
