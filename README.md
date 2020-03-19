@@ -55,6 +55,21 @@ We ran into a small compilation error. Adding `#pragma once` to `fifo_evictor.hh
 
 [Project repo](https://github.com/TheReverb/hash_it_out/tree/master)
 
+We report the following test results in case of a `nullptr` Evictor.
+
+Test name | Status
+ --- | ---
+Get Nothing  | PASSED
+Insertions without Crashing | PASSED
+Deletions without Crashing | PASSED
+Set/Get 1 | PASSED
+Set/Get 2 | PASSED
+Set/Get 3 | PASSED
+Tracking Memory | **FAILED**
+Modification | PASSED
+Proper Deletion | PASSED
+Proper Resetting | PASSED
+Null Eviction Policy | PASSED
 
 The tests hault due to a **segmentation fault** when attempting to test the FIFO evictor by repeatedly touching keys. Otherwise, the only assertions that fail have to do with incorrect values for `size` after retreiving a key.
 ### Aryeh/Connor
