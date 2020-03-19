@@ -10,11 +10,10 @@ g++ -std=c++17 -Wall -o test_cache_lib test_cache_lib.cc && ./test_cache_lib --s
 ```
 ## Part 1
 
-We crafted tests for the following desired functionality for both the cases where Evictor is a *nullptr* evictor and when it is a FIFO Evictor. The statuses reflect the result when run on our own code: 
+We crafted tests for the following desired functionality for both the cases where Evictor is a *nullptr* evictor and when it is a FIFO Evictor. The statuses reflect the result when run on our own code:
 
 Test name |  Description | Status
  --- | --- | ---
-
 Get Nothing |  Assuring that `get` should not retreive a key that wasn't inserted. | PASSED
 Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | PASSED
 Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | PASSED
@@ -26,16 +25,16 @@ Modification | `get` should retreive a key that was inserted and modified. | PAS
 Proper Deletion |  `get` should not retreive a key that was inserted and deleted. | PASSED
 Proper Resetting | resetting should result in an empty cache. | PASSED
 
-The following test was crafted for the case of a *nullptr* evictor: 
+The following test was crafted for the case of a *nullptr* evictor:
+
 Test name |  Description | Status
  --- | --- | ---
-
 Null Eviction Policy | Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow. | PASSED
 
-The following tests were crafted for the case of a FifoEvictor evictor: 
+The following tests were crafted for the case of a FifoEvictor evictor:
+
 Test name |  Description | Status
  --- | --- | ---
-
 `touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | PASSED
 FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | PASSED
 FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | PASSED
