@@ -10,36 +10,36 @@ g++ -std=c++17 -Wall -o test_cache_lib test_cache_lib.cc && ./test_cache_lib --s
 ```
 ## Part 1
 
-We crafted tests for the following desired functionality for both the cases where Evictor is a *nullptr* evictor and when it is a FIFO Evictor:
+We crafted tests for the following desired functionality for both the cases where Evictor is a *nullptr* evictor and when it is a FIFO Evictor. The statuses reflect the result when run on our own code: 
 
 Test name |  Description | Status
  --- | --- | ---
 
-Get Nothing| Assuring that `get` should not retreive a key that wasn't inserted. | X
-Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | X
-Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | X
-Set/Get 1 | `get` should retreive an inserted key and modify `size` appropriately (with 1 item in cache). | X
-Set/Get 2 |  `get` should retreive an inserted key and modify `size` appropriately (with 2 items in cache). | X
-Set/Get 3 |  `get` should retreive an inserted key and modify `size` appropriately (with 3 items in cache). | X
-Tracking Memory | Assuring that `space_used()` responds appropriately to new insertions. | X
-Modification | `get` should retreive a key that was inserted and modified. | X
-Proper Deletion|  `get` should not retreive a key that was inserted and deleted. | X
-Proper Resetting | resetting should result in an empty cache. | X
+Get Nothing| Assuring that `get` should not retreive a key that wasn't inserted. | PASSED
+Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | PASSED
+Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | PASSED
+Set/Get 1 | `get` should retreive an inserted key and modify `size` appropriately (with 1 item in cache). | PASSED
+Set/Get 2 |  `get` should retreive an inserted key and modify `size` appropriately (with 2 items in cache). | PASSED
+Set/Get 3 |  `get` should retreive an inserted key and modify `size` appropriately (with 3 items in cache). | PASSED
+Tracking Memory | Assuring that `space_used()` responds appropriately to new insertions. | PASSED
+Modification | `get` should retreive a key that was inserted and modified. | PASSED
+Proper Deletion|  `get` should not retreive a key that was inserted and deleted. | PASSED
+Proper Resetting | resetting should result in an empty cache. | PASSED
 
 The following test was crafted for the case of a *nullptr* evictor: 
 Test name |  Description | Status
  --- | --- | ---
 
-Null Eviction Policy | Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow. | X
+Null Eviction Policy | Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow. | PASSED
 
 The following tests were crafted for the case of a FifoEvictor evictor: 
 Test name |  Description | Status
  --- | --- | ---
 
 `touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | X
-FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | X
-FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | X
-FIFO Set/Get |  Inserting works with FIFO eviction. | X
+FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | PASSED
+FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | PASSED
+FIFO Set/Get |  Inserting works with FIFO eviction. | PASSED
 
 It should be noted that these tests pass when compiled and run on a Mac. When compiled in the virtual machine, the tests stop due to an instance of `std::length_error`. After running our original tests in valgrind, we believe this is due to a memory error.
 
