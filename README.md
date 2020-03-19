@@ -15,31 +15,31 @@ We crafted tests for the following desired functionality for both the cases wher
 Test name |  Description | Status
  --- | --- | ---
 
-Get Nothing| Assuring that `get` should not retreive a key that wasn't inserted. | 
-Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | 
-Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | 
-Set/Get 1 | `get` should retreive an inserted key and modify `size` appropriately (with 1 item in cache). | 
-Set/Get 2 |  `get` should retreive an inserted key and modify `size` appropriately (with 2 items in cache). | 
-Set/Get 3 |  `get` should retreive an inserted key and modify `size` appropriately (with 3 items in cache). | 
-Tracking Memory | Assuring that `space_used()` responds appropriately to new insertions. | 
-Modification | `get` should retreive a key that was inserted and modified. | 
-Proper Deletion|  `get` should not retreive a key that was inserted and deleted. | 
-Proper Resetting | resetting should result in an empty cache. | 
+Get Nothing| Assuring that `get` should not retreive a key that wasn't inserted. | X
+Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | X
+Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | X
+Set/Get 1 | `get` should retreive an inserted key and modify `size` appropriately (with 1 item in cache). | X
+Set/Get 2 |  `get` should retreive an inserted key and modify `size` appropriately (with 2 items in cache). | X
+Set/Get 3 |  `get` should retreive an inserted key and modify `size` appropriately (with 3 items in cache). | X
+Tracking Memory | Assuring that `space_used()` responds appropriately to new insertions. | X
+Modification | `get` should retreive a key that was inserted and modified. | X
+Proper Deletion|  `get` should not retreive a key that was inserted and deleted. | X
+Proper Resetting | resetting should result in an empty cache. | X
 
 The following test was crafted for the case of a *nullptr* evictor: 
 Test name |  Description | Status
  --- | --- | ---
 
-Null Eviction Policy | Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow. | 
+Null Eviction Policy | Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow. | X
 
 The following tests were crafted for the case of a FifoEvictor evictor: 
 Test name |  Description | Status
  --- | --- | ---
 
-`touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | 
-FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | 
-FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | 
-FIFO Set/Get |  Inserting works with FIFO eviction. | 
+`touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | X
+FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | X
+FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | X
+FIFO Set/Get |  Inserting works with FIFO eviction. | X
 
 It should be noted that these tests pass when compiled and run on a Mac. When compiled in the virtual machine, the tests stop due to an instance of `std::length_error`. After running our original tests in valgrind, we believe this is due to a memory error.
 
