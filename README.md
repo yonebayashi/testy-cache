@@ -49,23 +49,22 @@ It should be noted that these tests pass when compiled and run on a Mac. When co
 [Project repo](https://gitlab.com/InternetUnexplorer/CSCI_389_HW2)
 
 Test name | Status
- --- | --- | ---
+ --- |  ---
 Get Nothing |  PASSED
-Insertions without Crashing | FAILED
+Insertions without Crashing | **FAILED**
 Deletions without Crashing | PASSED
 Set/Get 1 | PASSED
 Set/Get 2 | PASSED
 Set/Get 3 | PASSED
 Tracking Memory | PASSED
 Modification | PASSED
-Proper Deletion | FAILED
+Proper Deletion | **FAILED**
 Proper Resetting | PASSED
-Null Eviction Policy | FAILED
+Null Eviction Policy | **FAILED**
 `touch_key` without Crashing | PASSED
-FIFO 1 | FAILED
-FIFO 2 | FAILED
-FIFO Set/Get | FAILED
-
+FIFO 1 | **FAILED**
+FIFO 2 | **FAILED**
+FIFO Set/Get | **FAILED**
 
 
 We ran into a small compilation error. Adding `#pragma once` to `fifo_evictor.hh` fixed it. Most tests pass, but several tests fail due to incorrect values for `size` after running get. Additonally, the evictor fails the "FIFO evictor displays FIFO functionality with nonunique keys" and "FIFO evictor displays FIFO functionality with unique keys" tests.
@@ -90,6 +89,10 @@ Modification | PASSED
 Proper Deletion | PASSED
 Proper Resetting | PASSED
 Null Eviction Policy | PASSED
+`touch_key` without Crashing | N/A
+FIFO 1 | N/A
+FIFO 2 | N/A
+FIFO Set/Get | N/A
 
 The tests hault due to a **segmentation fault** when attempting to test the FIFO evictor by repeatedly touching keys. Otherwise, the only assertions that fail have to do with incorrect values for `size` after retreiving a key.
 ### Aryeh/Connor
