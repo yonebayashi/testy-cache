@@ -10,9 +10,9 @@ g++ -std=c++17 -Wall -o test_cache_lib test_cache_lib.cc && ./test_cache_lib --s
 ```
 ## Part 1
 
-We test the following cases for when the Evictor is a nullptr Evictor:
+We test the following cases for when the Evictor is a *nullptr* evictor and when it is a FIFO Evictor:
 
-Test name/ Description | Status
+Test name | Description | Status
  --- | --- | ---
 Set/Get | Getting a key that wasn't inserted | PASSED
 Set/Get | Getting a key that was inserted | PASSED
@@ -44,10 +44,18 @@ Reset | PASSED
 
 [Project repo](https://github.com/TheReverb/hash_it_out/tree/master)
 
+The following table shows the test results for the cache when the Evictor is a *nullptr*.
+
 Test name | Status
 --- | ---
+Set/Get | PASSED
+Set/Get | PASSED
+Set/Get | PASSED
+Set/Get | PASSED
+Space used | **FAILED**
+Reset | PASSED
 
-The tests hault due to a segmentation fault when attempting to test the FIFO evictor by repeatedly touching keys. Otherwise, the only assertions that fail have to do with incorrect values for `size` after retreiving a key.
+The tests hault due to a **segmentation fault** when attempting to test the FIFO evictor by repeatedly touching keys. Otherwise, the only assertions that fail have to do with incorrect values for `size` after retreiving a key.
 ### Aryeh/Connor
 
 [Project repo](https://github.com/astah100/HW2AryehStahlAndConnorDeiparine)
