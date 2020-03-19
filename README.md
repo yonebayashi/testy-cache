@@ -15,7 +15,7 @@ We crafted tests for the following desired functionality for both the cases wher
 Test name |  Description | Status
  --- | --- | ---
 
-Get Nothing| Assuring that `get` should not retreive a key that wasn't inserted. | PASSED
+Get Nothing |  Assuring that `get` should not retreive a key that wasn't inserted. | PASSED
 Insertions without Crashing | Assuring that the cache should handle 100 insertions without crashing. | PASSED
 Deletions without Crashing | Assuring that the cache should handle 100 deletions without crashing. | PASSED
 Set/Get 1 | `get` should retreive an inserted key and modify `size` appropriately (with 1 item in cache). | PASSED
@@ -23,7 +23,7 @@ Set/Get 2 |  `get` should retreive an inserted key and modify `size` appropriate
 Set/Get 3 |  `get` should retreive an inserted key and modify `size` appropriately (with 3 items in cache). | PASSED
 Tracking Memory | Assuring that `space_used()` responds appropriately to new insertions. | PASSED
 Modification | `get` should retreive a key that was inserted and modified. | PASSED
-Proper Deletion|  `get` should not retreive a key that was inserted and deleted. | PASSED
+Proper Deletion |  `get` should not retreive a key that was inserted and deleted. | PASSED
 Proper Resetting | resetting should result in an empty cache. | PASSED
 
 The following test was crafted for the case of a *nullptr* evictor: 
@@ -36,7 +36,7 @@ The following tests were crafted for the case of a FifoEvictor evictor:
 Test name |  Description | Status
  --- | --- | ---
 
-`touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | X
+`touch_key` without Crashing | Assure that the FIFO evictor can handle 100 key touches without crashing. | PASSED
 FIFO 1 | FIFO evictor displays FIFO functionality with unique keys. | PASSED
 FIFO 2 | FIFO evictor displays FIFO functionality with nonunique keys. | PASSED
 FIFO Set/Get |  Inserting works with FIFO eviction. | PASSED
