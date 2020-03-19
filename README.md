@@ -12,7 +12,7 @@ g++ -std=c++17 -Wall -o test_cache_lib test_cache_lib.cc && ./test_cache_lib --s
 
 We crafted tests for the following desired functionality for both the cases where Evictor is a *nullptr* evictor and when it is a FIFO Evictor:
 
-Markup: * get should not retreive a key that wasn't inserted.
+ 		* get should not retreive a key that wasn't inserted.
 		* Cache should handle 100 insertions without crashing.
 		* Cache should handle 100 deletions without crashing.
 		* get should retreive a key that was inserted (with 1 item in cache).
@@ -25,11 +25,11 @@ Markup: * get should not retreive a key that wasn't inserted.
 
 The following test was crafted for the case of a *nullptr* evictor: 
 
-Markup: * Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow.
+* Eviction policy with nullptr evictor should not allow an insertion that would cause an overflow.
 
 The following tests were crafted for the case of a FifoEvictor evictor: 
 
-Markup: * FIFO evictor can handle 100 key touches without crashing.
+		* FIFO evictor can handle 100 key touches without crashing.
 		* FIFO evictor displays FIFO functionality with unique keys.
 		* FIFO evictor displays FIFO functionality with nonunique keys.
 		* Inserting works with FIFO eviction.
